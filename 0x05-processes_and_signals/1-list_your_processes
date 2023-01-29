@@ -1,4 +1,0 @@
-#!/bin/bash
-
-# display a list of currently running processes
-ps auxf
