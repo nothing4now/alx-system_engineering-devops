@@ -1,11 +1,13 @@
-#include "stdio.h"
-#include "stdlib.h"
-#include "unistd.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
 
 /**
- * infinite_while - a function that runs forever and returns nothing
- * Return: 0 in the end
-*/
+ * infinite_while - Keeps process running in memory indefinitely.
+ *
+ * Return: Always 0 (Success).
+ */
 int infinite_while(void)
 {
 	while (1)
@@ -16,23 +18,39 @@ int infinite_while(void)
 }
 
 /**
- * main - the entry to a program that creats 5 zombie process
- * Return: 0 on sucess
-*/
+ * createZombie - Creates a zombie process by duplicating current process as a
+ *                child process using fork(), then returns the child's PID.
+ *                If PID == 0, current process is fork() duplicate, so exit it
+ *                [without handling its exit code in parent] to turn it into a
+ *                zombie process.
+ *                If PID != 0, current process is original/parent process.
+ *
+ * Return: Process ID (PID) of created zombie process.
+ */
+int createZombie(void)
+{
+	int PID = 1;
+
+	PID = fork();
+	if (PID == 0)
+		exit(EXIT_SUCCESS);
+
+	return (PID);
+}
+
+/**
+ * main - Creates 5 zombie processes in Ubuntu/Linux.
+ *
+ * Return: Always EXIT_SUCCESS (0).
+ */
 int main(void)
 {
-	int children_processes = 0;
-	pid_t pid;
+	int count = 5;
 
-	while (children_processes < 5)
-	{
-		pid = fork();
-		if (!pid)
-			break;
-		printf("Zombie process created, PID: %i\n", (int)pid);
-		children_processes++;
-	}
-	if (pid != 0)
-		infinite_while();
-	return (0);
+	while (count--)
+		printf("Zombie process created, PID: %d\n", createZombie());
+
+	infinite_while();
+
+	return (EXIT_SUCCESS);
 }
