@@ -1,22 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
+#Configure a new Nginx server so that /redirect_me is redirecting to another page
 
-# Update package information and install Nginx
-
-# Create a new configuration file for the redirection
-sudo bash -c 'cat > /etc/nginx/conf.d/redirect.conf <<EOF
-server {
-    listen 80;
-    server_name your_domain_name.com;
-
-    location /redirect_me {
-        return 301 http://new_url.com;
-    }
-}
-EOF'
-
-# Test the Nginx configuration file for syntax errors
-sudo nginx -t
-
-# Reload the Nginx configuration to apply the changes
-sudo systemctl reload nginx
-
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" | sudo tee /var/www/html/index
+sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/ permanent;' /etc/nginx/sites-available/default
+sudo service nginx restart
