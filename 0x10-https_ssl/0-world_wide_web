@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Define a function to get DNS record for a subdomain
+get_dns_record() {
+    dig +short "$1" "$2" | awk '{ print $1 }'
+}
+
+# Define variables for domain and subdomain
+domain="$1"
+subdomain="$2"
+
+# Define an array of subdomains
+subdomains=("www" "lb-01" "web-01" "web-02")
+
+# Check if domain argument is provided
+if [[ -z "$domain" ]]; then
+    echo "Domain name is missing."
+    exit 1
+fi
+
+# If subdomain argument is provided, check only that subdomain
+if [[ -n "$subdomain" ]]; then
+    record_type=$(dig "$subdomain.$domain" +short | awk 'NR==1{ print $4 }')
+    destination=$(get_dns_record "$subdomain.$domain")
+    echo "The subdomain $subdomain is a $record_type record and points to $destination"
+
+# If no subdomain argument is provided, check all subdomains in the array
+else
+    for sub in "${subdomains[@]}"
+    do
+        record_type=$(dig "$sub.$domain" +short | awk 'NR==1{ print $4 }')
+        destination=$(get_dns_record "$sub.$domain")
+        echo "The subdomain $sub is a $record_type record and points to $destination"
+    done
+fi
+
