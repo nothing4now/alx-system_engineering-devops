@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Define a function to get DNS record for a subdomain
 get_dns_record() {
     dig +short "$1" "$2" | awk '{ print $1 }'
