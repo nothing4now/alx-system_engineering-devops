@@ -1,14 +1,13 @@
-Hit:1 http://ng.archive.ubuntu.com/ubuntu kinetic InRelease
-Hit:2 http://security.ubuntu.com/ubuntu kinetic-security InRelease
-Hit:3 http://ng.archive.ubuntu.com/ubuntu kinetic-updates InRelease
-Hit:4 http://ng.archive.ubuntu.com/ubuntu kinetic-backports InRelease
-Hit:5 https://download.docker.com/linux/ubuntu kinetic InRelease
-Hit:6 https://brave-browser-apt-release.s3.brave.com stable InRelease
-Hit:7 https://dl.google.com/linux/chrome/deb stable InRelease
-Hit:8 https://packages.microsoft.com/repos/edge stable InRelease
-Hit:9 https://ppa.launchpadcontent.net/ubuntubudgie/backports/ubuntu kinetic InRelease
+Hit:1 http://security.ubuntu.com/ubuntu kinetic-security InRelease
+Hit:2 http://ng.archive.ubuntu.com/ubuntu kinetic InRelease
+Hit:3 https://ppa.launchpadcontent.net/ubuntubudgie/backports/ubuntu kinetic InRelease
+Hit:4 https://dl.google.com/linux/chrome/deb stable InRelease
+Hit:5 http://ng.archive.ubuntu.com/ubuntu kinetic-updates InRelease
+Hit:6 https://download.docker.com/linux/ubuntu kinetic InRelease
+Hit:7 https://packages.microsoft.com/repos/edge stable InRelease
+Hit:8 http://ng.archive.ubuntu.com/ubuntu kinetic-backports InRelease
+Hit:9 https://brave-browser-apt-release.s3.brave.com stable InRelease
 Reading package lists...
-W: https://download.docker.com/linux/ubuntu/dists/kinetic/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
 W: Target Packages (main/binary-amd64/Packages) is configured multiple times in /etc/apt/sources.list.d/archive_uri-https_dl_google_com_linux_chrome_deb_-kinetic.list:1 and /etc/apt/sources.list.d/google-chrome.list:3
 W: Target Packages (main/binary-all/Packages) is configured multiple times in /etc/apt/sources.list.d/archive_uri-https_dl_google_com_linux_chrome_deb_-kinetic.list:1 and /etc/apt/sources.list.d/google-chrome.list:3
 W: Target Translations (main/i18n/Translation-en_NG) is configured multiple times in /etc/apt/sources.list.d/archive_uri-https_dl_google_com_linux_chrome_deb_-kinetic.list:1 and /etc/apt/sources.list.d/google-chrome.list:3
@@ -19,6 +18,7 @@ W: Target DEP-11-icons-small (main/dep11/icons-48x48.tar) is configured multiple
 W: Target DEP-11-icons (main/dep11/icons-64x64.tar) is configured multiple times in /etc/apt/sources.list.d/archive_uri-https_dl_google_com_linux_chrome_deb_-kinetic.list:1 and /etc/apt/sources.list.d/google-chrome.list:3
 W: Target CNF (main/cnf/Commands-amd64) is configured multiple times in /etc/apt/sources.list.d/archive_uri-https_dl_google_com_linux_chrome_deb_-kinetic.list:1 and /etc/apt/sources.list.d/google-chrome.list:3
 W: Target CNF (main/cnf/Commands-all) is configured multiple times in /etc/apt/sources.list.d/archive_uri-https_dl_google_com_linux_chrome_deb_-kinetic.list:1 and /etc/apt/sources.list.d/google-chrome.list:3
+W: https://download.docker.com/linux/ubuntu/dists/kinetic/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
 W: Target Packages (main/binary-amd64/Packages) is configured multiple times in /etc/apt/sources.list.d/archive_uri-https_packages_microsoft_com_repos_edge-kinetic.list:1 and /etc/apt/sources.list.d/microsoft-edge.list:3
 W: Target Packages (main/binary-all/Packages) is configured multiple times in /etc/apt/sources.list.d/archive_uri-https_packages_microsoft_com_repos_edge-kinetic.list:1 and /etc/apt/sources.list.d/microsoft-edge.list:3
 W: Target Translations (main/i18n/Translation-en_NG) is configured multiple times in /etc/apt/sources.list.d/archive_uri-https_packages_microsoft_com_repos_edge-kinetic.list:1 and /etc/apt/sources.list.d/microsoft-edge.list:3
@@ -54,5 +54,3 @@ Building dependency tree...
 Reading state information...
 nginx is already the newest version (1.22.0-1ubuntu1.1).
 0 upgraded, 0 newly installed, 0 to remove and 67 not upgraded.
-Skipping adding existing rule
-Skipping adding existing rule (v6)
